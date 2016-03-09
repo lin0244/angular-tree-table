@@ -1,0 +1,18 @@
+<table class="{{ctrl.css.table}}">
+    <thead class="{{ctrl.css.thead}}">
+        <tr class="{{ctrl.css.theadTr}}">
+        	<th></th>
+            <th class="{{ctrl.css.theadTh}}" ng-repeat="colname in ctrl.colnames">{{colname.name}}</th>
+        </tr>
+    </thead>
+    <tbody class="{{ctrl.css.tbody}}" ng-repeat="item in ctrl.contents">
+    	<tr class="{{ctrl.css.tbodyTr}}">
+    		<td class="{{ctrl.css.tbodyTd}}"></td>
+    		<td class="{{ctrl.css.tbodyTd}}" ng-repeat="colValue in ctrl.colnames">{{item[colValue.value]}}</td>
+    	</tr>
+		<tr ng-if="item.children !== undefined&&item.children !== ''&&item.children !== null&&item.children.length !== 0" ng-repeat="child in item.children">
+			<td class="{{ctrl.css.tbodyTd}}"></td>
+			<td ng-repeat="colValue in ctrl.colnames">{{child[colValue.value]}}</td>
+		</tr>
+    </tbody>
+</table>
